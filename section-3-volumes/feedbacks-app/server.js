@@ -2,6 +2,8 @@ const fs = require("fs").promises;
 const exists = require("fs").exists;
 const path = require("path");
 
+const PORT = process.env.PORT || 80;
+
 const express = require("express");
 const bodyParser = require("body-parser");
 
@@ -43,6 +45,6 @@ app.post("/create", async (req, res) => {
   });
 });
 
-app.listen(80, () => {
-  console.log("Server running on port 80");
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });
