@@ -4,16 +4,28 @@ services:
     image: "mongo"
     volumes:
       - data:/data/db
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: dmytro
-      MONGO_INITDB_ROOT_PASSWORD: secret
-      # - MONGO_INITDB_ROOT_USERNAME=dmytro
-    # env_file:
-    #   - ./env/mongo.env
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: dmytro
+    #   MONGO_INITDB_ROOT_PASSWORD: secret
+    # - MONGO_INITDB_ROOT_USERNAME=dmytro
+    env_file:
+      - ./env/mongo.env
     # networks:
     #   - goals-net
-  # backend:
+  backend:
+    build: ./backend
+    ports:
+      - "80:80"
+    volumes:
+      - logs:/app/logs
+      - ./backend:/app
+      - /app/node_modules
+    env_file:
+      - ./env/backend.env
+    depends_on:
+      - mongodb
 
   # frontend:
 volumes:
   data:
+  logs:
