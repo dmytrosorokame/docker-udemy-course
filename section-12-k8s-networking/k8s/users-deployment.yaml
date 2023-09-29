@@ -15,5 +15,8 @@ spec:
       containers:
         - name: users
           image: dmytrobetterme/kub-demo-users:latest
+          env:
+            - name: AUTH_ADDRESS
+              value: localhost
         - name: auth
           image: dmytrobetterme/kub-demo-auth:latest
