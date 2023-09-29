@@ -17,4 +17,4 @@ spec:
           image: dmytrobetterme/kub-demo-users:latest
           env:
             - name: AUTH_ADDRESS
-              value: localhost
+              value: 10.108.123.121
