@@ -65,7 +65,7 @@ spec:
           env:
             - name: MONGODB_CONNECTION_URI
               value: 'mongodb+srv://soroka:USdwrz9sA33EVpxE@dmytrosorokadatabase.ut4wkse.mongodb.net/users-kub?retryWrites=true&w=majority'
-            - name: AUTH_API_ADDRESSS
+            - name: AUTH_API_ADDRESS
               value: 'auth-service.default:3000'
           volumeMounts:
             - name: efs-vol
