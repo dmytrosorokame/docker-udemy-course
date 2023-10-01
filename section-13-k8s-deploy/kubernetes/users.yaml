@@ -27,9 +27,9 @@ spec:
     spec:
       containers:
         - name: users-api
-          image: dmytrobetterme/kub-dep-users:latest
+          image: dmytrobetterme/kub-deploy-users:latest
           env:
             - name: MONGODB_CONNECTION_URI
-              value: "mongodb+srv://dmytro:mongo-strong-password@dmytrosorokadatabase.ut4wkse.mongodb.net/users?retryWrites=true&w=majority"
+              value: 'mongodb+srv://soroka:USdwrz9sA33EVpxE@dmytrosorokadatabase.ut4wkse.mongodb.net/users-kub?retryWrites=true&w=majority'
             - name: AUTH_API_ADDRESSS
               value: 'auth-service.default:3000'

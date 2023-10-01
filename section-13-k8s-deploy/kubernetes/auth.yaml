@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: auth-api
-          image: dmytrobetterme/kub-dep-auth:latest
+          image: dmytrobetterme/kub-deploy-auth:latest
           env:
             - name: TOKEN_KEY
               value: 'shouldbeverysecure'
