@@ -1,16 +1,17 @@
-kind: storageClassName
+kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
   name: efs-sc
 provisioner: efs.csi.aws.com
+allowVolumeExpansion: true
 ---
-apiVersion: apps/v1
+apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: efs-pv
 spec:
-  capacity:
-    storage: 1Gi
+  capacity: 
+    storage: 5Gi
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
@@ -29,7 +30,7 @@ spec:
   storageClassName: efs-sc
   resources:
     requests:
-      storage: 1Gi
+      storage: 5Gi
 ---
 apiVersion: v1
 kind: Service
@@ -49,7 +50,7 @@ kind: Deployment
 metadata:
   name: users-deployment
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: users
@@ -71,5 +72,5 @@ spec:
               mountPath: /app/users
       volumes:
         - name: efs-vol
-          persistentVolumeClaim:
+          persistentVolumeClaim: 
             claimName: efs-pvc
